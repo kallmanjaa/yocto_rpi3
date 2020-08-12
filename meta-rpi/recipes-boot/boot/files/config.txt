@@ -1,0 +1,8 @@
+enable_uart=1
+##arm_64bit=1
+device_tree=bcm2710-rpi-3-b.dtb
+kernel=kernel.img
+dtparam=i2c_arm=on
+dtparam=spi=on
+dtparam=audio=on
+gpu_mem=128
