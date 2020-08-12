@@ -7,8 +7,8 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
 
 
-SRC_URI += " file://config.txt"
-SRC_URI += " file://cmdline.txt"
+SRC_URI += " file://${THISDIR}/files/config.txt"
+SRC_URI += " file://${THISDIR}/files/cmdline.txt"
 SRC_URI += " https://github.com/raspberrypi/firmware/raw/master/boot/start.elf;name=startelf"
 SRC_URI += " https://github.com/raspberrypi/firmware/raw/master/boot/bootcode.bin;name=bootcode"
 SRC_URI += " https://github.com/raspberrypi/firmware/raw/master/boot/fixup.dat;name=fixup"
@@ -29,8 +29,8 @@ SRCREV = "${AUTOREV}"
 do_install() {
 	install -d ${DEPLOY_DIR_IMAGE}/boot_partition
 
-	cp ${WORKDIR}/config.txt ${DEPLOY_DIR_IMAGE}/boot_partition
-	cp ${WORKDIR}/cmdline.txt ${DEPLOY_DIR_IMAGE}/boot_partition
+	cp ${THISDIR}/files/config.txt ${DEPLOY_DIR_IMAGE}/boot_partition
+	cp ${THISDIR}/files/cmdline.txt ${DEPLOY_DIR_IMAGE}/boot_partition
 	cp ${WORKDIR}/start.elf ${DEPLOY_DIR_IMAGE}/boot_partition
 	cp ${WORKDIR}/bootcode.bin ${DEPLOY_DIR_IMAGE}/boot_partition
 	cp ${WORKDIR}/fixup.dat ${DEPLOY_DIR_IMAGE}/boot_partition
