@@ -44,6 +44,7 @@ bblayers_conf(){
 bitbake_command(){
 
 	bitbake rpi3-image
+
 }
 
 main(){

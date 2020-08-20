@@ -37,6 +37,7 @@ RUN dpkg --add-architecture amd64 \
 	repo \
 	bc \
 	autoconf \
+	subversion \
 	#&& apt-get clean \
  	#&& rm -rf /var/lib/apt/lists/* \
     && echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
