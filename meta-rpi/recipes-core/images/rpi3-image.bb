@@ -18,6 +18,10 @@ IMAGE_INSTALL_append += "\
 		egl \
 		dbus \
 		qt5-base \
+		qt5-declarative \
+		qt5-quickcontrols \
+		qt5-svg \
+		qt5-virtualkeyboard \
 		"
 USE_DEPMOD = "0"
 

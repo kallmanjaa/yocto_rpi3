@@ -1,6 +1,6 @@
-SECTION = "EGL"
+SECTION = "QT5"
 
-DESCRIPTION = "EGL libs for RPI3 devices"
+DESCRIPTION = "QT5-base for RPI3 devices"
 
 LICENSE = "GPL-2.0+"
 
@@ -14,15 +14,26 @@ S = "${WORKDIR}/git"
 
 DEPENDS += "zlib-native zlib libpng-native libpng dbus dbus-native libdrm egl"
 
+SYSROOT_DIRS += "/qt"
+
+INSANE_SKIP = "1"
+INHIBIT_PACKAGE_STRIP = "1"
+INHIBIT_PACKAGE_DEBUG_SPLIT  = "1"
+INHIBIT_SYSROOT_STRIP = "1"
+
+PACKAGES = "${PN}"
+
+FILES_${PN} += " /qt \
+		"
+
 do_configure(){
 		
 	./configure \
 		-opensource \
 		-confirm-license \ 
-		-prefix /qt \
 		-release \
-		-force-debug-info \
 		-opengl es2 \
+		-prefix /qt \
 		-device linux-rasp-pi3-g++ \
 		-sysroot ${STAGING_DIR_TARGET} \
 		-device-option CROSS_COMPILE=${TARGET_PREFIX} \
@@ -64,18 +75,12 @@ do_configure(){
 		-release -v
 }
 
-INHIBIT_PACKAGE_DEBUG_SPLIT  = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
 do_install(){
-	CROSS_COMPILE=${TARGET_PREFIX} make install
 	install -d ${D}
-	cp -R ${STAGING_DIR_TARGET}/qt ${D}
+	make install
+	make INSTALL_ROOT=${D} install
+	mv ${D}${STAGING_DIR_TARGET}/qt ${D}
+	find ${D} -type d -empty -delete
 }
-
-PACKAGES = "${PN}"
-
-FILES_${PN} += " /qt \
-		"
 
 do_package_qa[noexec] = "1"
