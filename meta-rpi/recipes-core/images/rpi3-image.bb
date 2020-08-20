@@ -23,6 +23,9 @@ IMAGE_INSTALL_append += "\
 		qt5-svg \
 		qt5-virtualkeyboard \
 		"
+
+DEPENDS += "boot"
+
 USE_DEPMOD = "0"
 
 IMAGE_BOOT_FILES = "\
