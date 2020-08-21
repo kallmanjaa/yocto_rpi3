@@ -22,6 +22,7 @@ IMAGE_INSTALL_append += "\
 		qt5-quickcontrols \
 		qt5-svg \
 		qt5-virtualkeyboard \
+		qt5-location \
 		"
 
 DEPENDS += "boot"
