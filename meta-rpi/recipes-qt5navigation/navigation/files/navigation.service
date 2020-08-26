@@ -1,0 +1,8 @@
+[Unit]
+Description=Qt5 Navigation app startup service
+
+[Service]
+ExecStart=/usr/bin/navigation
+
+[Install]
+WantedBy=multi-user.target

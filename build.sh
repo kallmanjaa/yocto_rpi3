@@ -4,10 +4,11 @@ set -ex -o pipefail
 export CURRENT_DIR="${PWD}"
 
 GIT_POKY="https://git.yoctoproject.org/git/poky"
-
+GIT_OE="https://git.openembedded.org/meta-openembedded"
 
 clone_poky_sumo(){
 	git clone -b "sumo" "${GIT_POKY}"
+	git clone -b "sumo" "${GIT_OE}"
 }
 
 build_env_setup(){
@@ -36,6 +37,7 @@ bblayers_conf(){
 	${CURRENT_DIR}/poky/meta \
 	${CURRENT_DIR}/poky/meta-poky \
 	${CURRENT_DIR}/poky/meta-yocto-bsp \
+	${CURRENT_DIR}/meta-openembedded/meta-oe \
 	${CURRENT_DIR}/meta-rpi \
 	"
 	EOL

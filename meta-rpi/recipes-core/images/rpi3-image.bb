@@ -16,13 +16,17 @@ IMAGE_INSTALL_append += "\
 		wayland \
 		libxext \
 		egl \
+		gperf \
+		alsa-lib \
 		dbus \
+		nss \
 		qt5-base \
 		qt5-declarative \
-		qt5-quickcontrols \
-		qt5-svg \
-		qt5-virtualkeyboard \
-		qt5-location \
+		qt5-quickcontrols \ 
+    		qt5-svg \
+    		qt5-virtualkeyboard \
+    		qt5-location \
+    		qt5-webengine \
 		"
 
 DEPENDS += "boot"
