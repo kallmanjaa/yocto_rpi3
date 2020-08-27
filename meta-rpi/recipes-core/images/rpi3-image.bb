@@ -20,6 +20,8 @@ IMAGE_INSTALL_append += "\
 		alsa-lib \
 		dbus \
 		nss \
+		liberation-fonts \
+		networkmanager \
 		qt5-base \
 		qt5-declarative \
 		qt5-quickcontrols \ 
@@ -27,6 +29,7 @@ IMAGE_INSTALL_append += "\
     		qt5-virtualkeyboard \
     		qt5-location \
     		qt5-webengine \
+    		navigation \
 		"
 
 DEPENDS += "boot"
