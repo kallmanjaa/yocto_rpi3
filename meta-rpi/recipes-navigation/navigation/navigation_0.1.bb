@@ -38,10 +38,8 @@ INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT  = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 
-SRC_URI += "file://navigation.service"
+SRC_URI += " file://navigation.service"
 DISTRO_FEATURES_append = "systemd"
-S = "${WORKDIR}"
-
 
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE_${PN} = "navigation.service"
@@ -52,7 +50,7 @@ inherit systemd
 do_install() {
 
              install -d ${D}${systemd_unitdir}/system/
-             cp ${WORKDIR}/navigation.service ${D}${systemd_unitdir}/system/
+             install -m 0644 ${WORKDIR}/navigation.service ${D}${systemd_unitdir}/system/
 }
 
 #Pack the path
