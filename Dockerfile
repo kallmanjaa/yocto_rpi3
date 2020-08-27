@@ -61,10 +61,6 @@ RUN ln -sf /usr/lib/x86_64-linux-gnu/nss/* /usr/lib
 
 RUN useradd -ms /bin/bash kalmanjaa
 
-#RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /bin/repo
-
-#RUN chmod a+x /bin/repo
-
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
