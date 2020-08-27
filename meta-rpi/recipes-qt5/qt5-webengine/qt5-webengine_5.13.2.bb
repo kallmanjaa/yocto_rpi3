@@ -17,6 +17,7 @@ export PKG_CONFIG_PATH = "${STAGING_DIR_TARGET}/usr/lib/pkgconfig"
 
 SYSROOT_DIRS += "/usr/local"
 
+PARALLEL_MAKE = "-j 1"
 EXTRA_OEMAKE = " \
     		MAKEFLAGS='${PARALLEL_MAKE}' \
     	       "
