@@ -47,7 +47,7 @@ SYSTEMD_SERVICE_${PN} = "navigation.service"
 
 inherit systemd
 
-do_install() {
+do_install_append() {
 
              install -d ${D}${systemd_unitdir}/system/
              install -m 0644 ${WORKDIR}/navigation.service ${D}${systemd_unitdir}/system/
