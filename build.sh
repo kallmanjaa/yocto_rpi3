@@ -4,10 +4,11 @@ set -ex -o pipefail
 export CURRENT_DIR="${PWD}"
 
 GIT_POKY="https://git.yoctoproject.org/git/poky"
-
+GIT_OE="https://git.openembedded.org/meta-openembedded"
 
 clone_poky_sumo(){
 	git clone -b "sumo" "${GIT_POKY}"
+	git clone -b "sumo" "${GIT_OE}"
 }
 
 build_env_setup(){
@@ -21,7 +22,11 @@ local_conf(){
 	BB_NUMBER_THREADS = "9"
 	PARALLEL_MAKE = "-j 9"
 	GPU_MEM = "16"
-	IMAGE_FSTYPES = "tar.gz ext4 wic"
+	IMAGE_FSTYPES = "tar.gz wic"
+	DISTRO_FEATURES_append = " systemd "
+	DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
+	VIRTUAL-RUNTIME_init_manager = "systemd"
+	VIRTUAL-RUNTIME_initscripts = ""
 	EOL
 }
 
@@ -36,6 +41,9 @@ bblayers_conf(){
 	${CURRENT_DIR}/poky/meta \
 	${CURRENT_DIR}/poky/meta-poky \
 	${CURRENT_DIR}/poky/meta-yocto-bsp \
+	${CURRENT_DIR}/meta-openembedded/meta-oe \
+	${CURRENT_DIR}/meta-openembedded/meta-python \
+	${CURRENT_DIR}/meta-openembedded/meta-networking \
 	${CURRENT_DIR}/meta-rpi \
 	"
 	EOL

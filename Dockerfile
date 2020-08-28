@@ -19,11 +19,22 @@ RUN dpkg --add-architecture amd64 \
 	unzip \
 	texinfo \
 	gcc-multilib \
-    build-essential \
-    chrpath \
-    socat \
-    libsdl1.2-dev \
-    xterm \
+	g++-multilib \
+	libc6-dev-i386 \
+    	build-essential \
+    	libfontconfig1-dev \
+    	libnss3-dev \
+    	ninja-build \
+    	chrpath \
+    	socat \
+    	gperf \
+    	bison \
+    	flex \
+    	pkg-config \
+    	libpng-dev \
+    	libsdl1.2-dev \
+    	xterm \
+    	libstdc++6 \
 	openssh-client \
 	rsync \
 	cpio \
@@ -42,14 +53,13 @@ RUN dpkg --add-architecture amd64 \
  	#&& rm -rf /var/lib/apt/lists/* \
     && echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
+RUN mkdir -p /usr/include/nss3 && ln -sf /usr/include/nss/* /usr/include/nss3
+RUN ln -sf /usr/include/nspr/* /usr/include
+RUN ln -sf /usr/lib/x86_64-linux-gnu/nss/* /usr/lib
 
 #RUN sysctl -w fs.inotify.max_user_watches=1048576 && sysctl -p
 
 RUN useradd -ms /bin/bash kalmanjaa
-
-#RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /bin/repo
-
-#RUN chmod a+x /bin/repo
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 

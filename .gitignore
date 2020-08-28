@@ -1,2 +1,4 @@
 build/
 poky/
+meta-openembedded/
+*.log

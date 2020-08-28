@@ -1,0 +1,13 @@
+[Unit]
+Description=navigation
+After=multi-user.target
+
+[Service]
+Environment="QTWEBENGINE_CHROMIUM_FLAGS=\"--no-sandbox"\"
+Environment="QT_QPA_FONTDIR=/usr/share/fonts/ttf/"
+Environment="LD_LIBRARY_PATH=/usr/local/Qt-5.13.2/lib:/opt/vc/lib"
+
+ExecStart=/usr/local/bin/navigation
+
+[Install]
+WantedBy=multi-user.target
