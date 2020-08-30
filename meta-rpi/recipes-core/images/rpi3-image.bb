@@ -20,7 +20,7 @@ IMAGE_INSTALL_append += "\
 		alsa-lib \
 		dbus \
 		nss \
-		liberation-fonts \
+		ttf-dejavu-serif \
 		networkmanager \
 		qt5-base \
 		qt5-declarative \
