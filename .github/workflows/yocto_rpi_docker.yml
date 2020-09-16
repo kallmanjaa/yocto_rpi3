@@ -12,15 +12,4 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-
-  build_docker:
-    runs-on: self-hosted
-    needs: checkout
-  
-    steps:
-    - name: Build docker
-      working-directory: dockerfile
-      run: |
-        docker build \
-        -t kallmanjaa . 
       
