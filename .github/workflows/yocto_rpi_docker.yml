@@ -20,7 +20,7 @@ jobs:
   
     steps:
     - name: Build docker
-      working-directory: docker
+      working-directory: dockerfile
       run: |
         docker build \
         -t kallmanjaa . 
