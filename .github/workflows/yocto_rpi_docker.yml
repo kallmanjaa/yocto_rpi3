@@ -19,7 +19,7 @@ jobs:
   
     steps:
     - name: Build docker
-      working-directory: erweka_rootfs
+      working-directory: docker
       run: |
         docker build \
         -t kallmanjaa . 
