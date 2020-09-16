@@ -1,8 +1,9 @@
-name: Building yocto_rpi3
+name: yocto_rpi3
 on:
   workflow_dispatch:
     push:
       branches:
+        - develop
         - feature/*
 
 jobs:
