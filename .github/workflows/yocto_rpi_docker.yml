@@ -15,7 +15,6 @@ jobs:
 
   build_docker:
     runs-on: self-hosted
-    needs: checkout
   
     steps:
     - name: Build docker
