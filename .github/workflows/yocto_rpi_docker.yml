@@ -1,0 +1,22 @@
+name: yocto_rpi3_docker
+on:
+  push:
+    branches:
+      - develop
+      - feature/*
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: yocto_rpi3_docker
+      working-directory: dockerfile
+      run: |
+        docker build \
+          -t kallmanjaa \
+          .
+
