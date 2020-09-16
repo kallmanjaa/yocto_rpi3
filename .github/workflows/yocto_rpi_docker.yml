@@ -37,4 +37,4 @@ jobs:
         --name yocto_image \
         -v "${GITHUB_WORKSPACE}:/yocto_rpi3" \
         --workdir /yocto_rpi3 \
-        ./build.sh   
+        ./yocto_rpi3/build.sh   
