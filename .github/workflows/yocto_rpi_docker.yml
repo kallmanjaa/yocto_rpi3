@@ -23,17 +23,4 @@ jobs:
       run: |
         docker build \
         -t kallmanjaa . 
-   
-  build_yocto_image:
-    runs-on: self-hosted
-    needs: checkout
-  
-    steps:
-    - name: run docker
-      run: |
-        docker run --rm \
-        --user=kallmanjaa \
-        --name yocto_image \
-        -v "${GITHUB_WORKSPACE}:/yocto_rpi3" \
-        --workdir /yocto_rpi3 \
-        /bin/bash -c build.sh   
+    
