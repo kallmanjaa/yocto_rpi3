@@ -15,6 +15,7 @@ jobs:
 
   build_docker:
     runs-on: self-hosted
+    needs: checkout
   
     steps:
     - name: Build docker
@@ -22,8 +23,8 @@ jobs:
       run: |
         docker build \
         -t kallmanjaa . 
- 
-   build_yocto_image:
+   
+  build_yocto_image:
     runs-on: self-hosted
     needs: checkout
   
@@ -35,4 +36,4 @@ jobs:
         --name yocto_image \
         -v "${GITHUB_WORKSPACE}:/yocto_rpi3" \
         --workdir /yocto_rpi3 \
-        ./build.sh   
+        /bin/bash   
