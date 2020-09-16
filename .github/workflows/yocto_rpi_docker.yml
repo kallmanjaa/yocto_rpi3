@@ -1,23 +1,25 @@
-name: yocto_rpi3_docker
+name: Building yocto_rpi3
 on:
-  push:
-    branches:
-      - develop
-      - feature/*
-
+  workflow_dispatch:
+    push:
+      branches:
+        - feature/*
 
 jobs:
-  build:
-
-    runs-on: self-hosted
+  checkout:
+   runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
 
-    - name: yocto_rpi3_docker
-      working-directory: dockerfile
+  build:
+   runs-on: self-hosted
+   needs: checkout
+  
+   steps:
+    - name: Build docker
+      working-directory: erweka_rootfs
       run: |
         docker build \
-          -t kallmanjaa \
-          .
-
+        -t kallmanjaa . 
