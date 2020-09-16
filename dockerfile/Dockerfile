@@ -59,7 +59,7 @@ RUN ln -sf /usr/lib/x86_64-linux-gnu/nss/* /usr/lib
 
 #RUN sysctl -w fs.inotify.max_user_watches=1048576 && sysctl -p
 
-RUN useradd -ms /bin/bash kalmanjaa
+RUN useradd -ms /bin/bash kallmanjaa
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 
