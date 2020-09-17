@@ -31,5 +31,10 @@ jobs:
     steps:
     - name: run docker
       run: |
-        echo "${GITHUB_WORKSPACE}"
-
+        docker run --rm \
+        -t kallmanjaa \
+        --user=kallmanjaa \
+        --name yocto_image \
+        -v "${GITHUB_WORKSPACE}:/yocto_rpi3" \
+        --workdir /yocto_rpi3 \
+        /bin/bash -c build.sh   
