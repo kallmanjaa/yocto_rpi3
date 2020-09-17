@@ -33,7 +33,6 @@ jobs:
       run: |
         docker run --rm \
         -t kallmanjaa \
-        --user=kallmanjaa \
         --name yocto_image \
         -v "${GITHUB_WORKSPACE}:/yocto_rpi3" \
         --workdir /yocto_rpi3 \
