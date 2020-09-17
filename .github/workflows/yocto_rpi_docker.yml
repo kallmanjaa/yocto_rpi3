@@ -32,8 +32,9 @@ jobs:
     - name: run docker
       run: |
         docker run --rm \
+        --user=kallmanjaa \
         --name yocto_image \
         -v "${GITHUB_WORKSPACE}:/yocto_rpi3" \
         --workdir /yocto_rpi3 \
         kallmanjaa \
-        /bin/bash -c build.sh   
+        /bin/bash -c /yocto_rpi3/build.sh   
